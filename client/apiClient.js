@@ -22,9 +22,20 @@ function insertValuesToRow(row, record) {
     addCellToRow(row, 3, record.measure_date);
 }
 
+function removeChildNodes(node) {
+    let fc = node.firstChild;
+
+    while(fc) {
+        node.removeChild(fc);
+        fc = node.firstChild;
+    }
+}
+
 function showHistory() {
     const recordsField = document.getElementById("records");
     const recordsTableField = document.createElement('table');
+
+    removeChildNodes(recordsField);
     recordsField.appendChild(recordsTableField);
 
     getRecordsFromServer().then((records) => {
@@ -33,9 +44,33 @@ function showHistory() {
             const row = recordsTableField.insertRow(i);
             insertValuesToRow(row, records[i]);
 
-            // recordsField.innerHTML += '<div "><h3 class="h5">' + "#" + records[i].date + " " + records[i].temperature + " " + records[i].pressure + '</div>';
         }
     });
-
-
 }
+
+$(document).ready(function() {
+
+    console.log("ready");
+
+    $('#weather-send-form').submit(function(event) {
+        event.preventDefault();
+
+        const formData = {
+            "city": $('input[name=city]').val(),
+            "temperature": parseFloat($('input[name=temperature]').val()),
+            "humidity": parseFloat($('input[name=humidity]').val())
+        };
+
+        console.log(JSON.stringify(formData));
+
+        $.ajax({
+            type        : 'POST',
+            url         : 'http://localhost/api/operations/create.php',
+            data        : JSON.stringify(formData),
+            dataType    : 'json',
+            encode       : true
+        });
+
+    });
+
+});
