@@ -1,7 +1,7 @@
 const API_ADDRESS = "http://localhost/api/operations/";
 
 function getRecordsFromServer() {
-    return fetch(API_ADDRESS+"read.php")
+    return fetch(API_ADDRESS +"read_weather.php")
         .then(response => response.json())
         .then(json => {
 
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
         $.ajax({
             type        : 'POST',
-            url         : 'http://localhost/api/operations/create.php',
+            url         : API_ADDRESS + 'create_weather.php',
             data        : JSON.stringify(formData),
             dataType    : 'json',
             encode       : true
