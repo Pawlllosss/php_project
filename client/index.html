@@ -2,60 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://www.json.org/json2.js"></script>
-    <script src="apiClient.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="loginClient.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Pogodynka</title>
+    <title>logowanie</title>
 </head>
 <body>
-
-<form  class="form-horizontal" id="weather-send-form">
+<form  class="form-horizontal" id="login-form">
     <fieldset>
-        <legend>Dane pogodowe</legend>
+        <legend>Logowanie</legend>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="city">Miasto</label>
+            <label class="col-md-4 control-label" for="login">Login</label>
             <div class="col-md-4">
-                <input id="city" name="city" type="text" placeholder="Kraków" class="form-control input-md" required="">
+                <input id="login" name="login" type="text" placeholder="Login" class="form-control input-md" required="">
 
             </div>
         </div>
+
         <div class="form-group">
-            <label class="col-md-4 control-label" for="temperature">Temperatura</label>
+            <label class="col-md-4 control-label" for="password">Hasło</label>
             <div class="col-md-4">
-                <input id="temperature" name="temperature" type="number" step="0.01" placeholder="15" class="form-control input-md" required="">
+                <input id="password" name="password" type="text" placeholder="Hasło" class="form-control input-md" required="">
 
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="humidity">Ciśnienie</label>
-            <div class="col-md-4">
-                <input id="humidity" name="humidity" type="number" step="0.01" placeholder="1000" class="form-control input-md" required="">
 
-            </div>
-        </div>
         <div class="form-group">
             <label class="col-md-4 control-label" for="send-button"></label>
             <div class="col-md-8">
-                <button id="send-button" name="send-button" class="btn btn-success"  type="submit">Wyślij</button>
+                <button id="send-button" name="send-button" class="btn btn-success"  type="submit">Zaloguj</button>
             </div>
         </div>
 
     </fieldset>
 </form>
 
-<div class="form-group">
-    <label class="col-md-4 control-label" for="send-button"></label>
-    <div class="col-md-8">
-        <button id="history-button" name="history-button" class="btn btn-info"  onclick="showHistory()">Wyświetl historię</button>
-    </div>
-</div>
+<div id="response"></div>
 
+<form  class="form-horizontal" id="register-form">
+    <fieldset>
+        <legend>Rejestracja</legend>
 
-<div id="records">
-</div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="login-reg">Login</label>
+            <div class="col-md-4">
+                <input id="login-reg" name="login-reg" type="text" placeholder="Login" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="password-reg">Hasło</label>
+            <div class="col-md-4">
+                <input id="password-reg" name="password-reg" type="text" placeholder="Hasło" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="send-button-reg"></label>
+            <div class="col-md-8">
+                <button id="send-button-reg" name="send-button" class="btn btn-success"  type="submit">Rejestracja</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+<div id="response-register"></div>
 
 </body>
 </html>

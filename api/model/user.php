@@ -59,8 +59,6 @@ class User
             $this->login = $row['LOGIN'];
             $this->password = $row['PASSWORD'];
 
-            echo $this->password;
-
             $result = true;
         }
 
